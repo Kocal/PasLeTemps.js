@@ -12,6 +12,3 @@ Parce que parfois j'ai juste envie de quelque chose qui marche avec un peu de JS
 - Tant que possible le JS doit être du "progressive enhancement" avec une interface fonctionnelle sans le module (sauf dans le cas de slider évidemment).
 - Aucune dépendance dans le package.json en dehors du dev.
 
-### Idées 
-
-- Peut être utiliser flow ou TypeScript pour capturer les bugs "évidents".
