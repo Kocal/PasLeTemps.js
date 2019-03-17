@@ -10,9 +10,9 @@
  * </div>
  */
 
-export default function ($ = global.jQuery) {
-  $('.js-slider').each(function () {
-    let options = {
+export default function($ = window.jQuery) {
+  $('.js-slider').each(function() {
+    let options: JQuerySlickOptions = {
       slidesToShow: 1,
       slidesToScroll: 1,
       centerMode: this.dataset.center !== undefined,
@@ -21,12 +21,12 @@ export default function ($ = global.jQuery) {
       arrows: this.dataset.arrows !== undefined,
       dots: this.dataset.dots !== undefined,
       asNavFor: this.dataset.connect,
-      adaptiveHeight: true
+      adaptiveHeight: true,
     }
 
     if (this.dataset.dots && this.dataset.dots !== '') {
       let selector = this.dataset.dots
-      options.customPaging = function (slider, i) {
+      options.customPaging = function(slider, i) {
         return slider.$slides.find(selector).get(i).innerHTML
       }
     }
@@ -35,10 +35,10 @@ export default function ($ = global.jQuery) {
 
     if ($slider.data('page')) {
       let $pager = $slider.parent().find($slider.data('page'))
-      $slider.on('init', function (event, slick) {
+      $slider.on('init', function(event, slick: JQuerySlick) {
         $pager.html(`<span>0${slick.currentSlide + 1}</span>/0${slick.slideCount}`)
       })
-      $slider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+      $slider.on('beforeChange', function(event, slick: JQuerySlick, currentSlide: number, nextSlide: number) {
         $pager.html(`<span>0${nextSlide + 1}</span>/0${slick.slideCount}`)
       })
     }
